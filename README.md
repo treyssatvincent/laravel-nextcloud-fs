@@ -2,15 +2,7 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
 [![Total Downloads][ico-downloads]][link-downloads]
-
-**Note:** Replace ```Pascal Baljet``` ```pascalbaljet``` ```https://www.pascalbaljetmedia.com``` ```info@pascalbaljetmedia.com``` ```pbmedia``` ```laravel-webdav``` ```Laravel 5 WebDAV Filesystem``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line.
-
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
 
 ## Install
 
@@ -22,9 +14,33 @@ $ composer require pbmedia/laravel-webdav
 
 ## Usage
 
+Register the service provider in your app.php config file:
+
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+// config/app.php
+
+'providers' => [
+    ...
+    Pbmedia\FilesystemProviders\WebDAVServiceProvider::class
+    ...
+];
+```
+
+Create a webdav filesystem disk:
+
+``` php
+// config/filesystems.php
+
+'disks' => [
+	...
+	'webdav' => [
+	    'driver'   => 'webdav',
+	    'baseUri'  => 'https://mywebdavstorage.com',
+	    'userName' => 'pascalbaljetmedia',
+	    'password' => 'supersecretpassword,
+	],
+	...
+];
 ```
 
 ## Change log
