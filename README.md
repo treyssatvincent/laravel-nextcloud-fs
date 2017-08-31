@@ -37,7 +37,7 @@ Create a webdav filesystem disk:
 	    'driver'   => 'webdav',
 	    'baseUri'  => 'https://mywebdavstorage.com',
 	    'userName' => 'pascalbaljetmedia',
-	    'password' => 'supersecretpassword,
+	    'password' => 'supersecretpassword',
 	],
 	...
 ];
