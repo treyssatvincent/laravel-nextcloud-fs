@@ -32,4 +32,17 @@ class ServiceProviderTest extends \Orchestra\Testbench\TestCase
 
         $this->assertInstanceOf(WebDAVAdapter::class, $adapter);
     }
+
+    /** @test */
+    public function it_can_have_an_optional_path_prefix()
+    {
+        $this->app['config']->set('filesystems.disks.webdav.pathPrefix', 'prefix');
+
+        $filesystem = Storage::disk('webdav');
+        $driver     = $filesystem->getDriver();
+        $adapter    = $driver->getAdapter();
+
+        $this->assertInstanceOf(WebDAVAdapter::class, $adapter);
+        $this->assertEquals('prefix/', $adapter->getPathPrefix());
+    }
 }
