@@ -38,7 +38,7 @@ Create a webdav filesystem disk:
 	    'baseUri'    => 'https://mywebdavstorage.com',
 	    'userName'   => 'pascalbaljetmedia',
 	    'password'   => 'supersecretpassword',
-        'pathPrefix' => 'backups', // optional
+	    'pathPrefix' => 'backups', // optional
 	],
 	...
 ];
