@@ -4,6 +4,11 @@
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
+This package provides a WebDAV driver for Laravel's Filesystem. Laravel 5.0 and higher supported.
+
+## We are looking for beta testers!
+We are currently building a *sophisticated health checker for your Laravel applications* called [Upserver.online](https://upserver.online). We will launch a private beta in the coming weeks so please join the mailing list to get **early access**! If you want to know more, you can also read the [official announcement](https://mailchi.mp/upserver/this-is-upserver-online) or follow us on [Twitter](https://twitter.com/UpserverOnline).
+
 ## Install
 
 Via Composer
@@ -14,7 +19,7 @@ $ composer require pbmedia/laravel-webdav
 
 ## Usage
 
-Register the service provider in your app.php config file:
+Register the service provider in your app.php config file (Laravel 5.4 and lower only):
 
 ``` php
 // config/app.php
