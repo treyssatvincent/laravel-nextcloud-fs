@@ -1,6 +1,7 @@
 # laravel-webdav
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
+[![Build Status](https://img.shields.io/travis/pascalbaljetmedia/laravel-paddle/master.svg?style=flat-square)](https://travis-ci.org/pascalbaljetmedia/laravel-paddle)
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
