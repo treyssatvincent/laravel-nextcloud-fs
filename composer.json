@@ -1,7 +1,7 @@
 {
     "name": "pbmedia/laravel-webdav",
     "type": "library",
-    "description": "Laravel 5 WebDAV Filesystem",
+    "description": "Laravel WebDAV Filesystem",
     "keywords": [
         "pbmedia",
         "laravel-webdav"
@@ -17,13 +17,13 @@
         }
     ],
     "require": {
-        "php" : "~5.6|^7.0",
-        "illuminate/filesystem": "^5.0 || ^6.0",
+        "php": "^7.2",
+        "illuminate/filesystem": "^6.0 || ^7.0",
         "league/flysystem-webdav": "^1.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^3.0",
-        "phpunit/phpunit": "~5.0|~6.0|~7.0|~8.0"
+        "orchestra/testbench": "^4.0 || ^4.0",
+        "phpunit/phpunit": "~7.0|~8.0"
     },
     "autoload": {
         "psr-4": {
