@@ -7,9 +7,6 @@
 
 This package provides a WebDAV driver for Laravel's Filesystem. Laravel 5.0 and higher supported.
 
-## We are looking for beta testers!
-We are currently building a *sophisticated health checker for your Laravel applications* called [Upserver.online](https://upserver.online). We will launch a private beta in the coming weeks so please join the mailing list to get **early access**! If you want to know more, you can also read the [official announcement](https://mailchi.mp/upserver/this-is-upserver-online) or follow us on [Twitter](https://twitter.com/UpserverOnline).
-
 ## Install
 
 Via Composer
@@ -61,6 +58,14 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) and [CONDUCT](CONDUCT.md) for details
 ## Security
 
 If you discover any security related issues, please email info@protone.media instead of using the issue tracker.
+
+## Other Laravel packages
+
+* [`Laravel Analytics Event Tracking`](https://github.com/pascalbaljetmedia/laravel-analytics-event-tracking): Laravel package to easily send events to Google Analytics.
+* [`Laravel Blade On Demand`](https://github.com/pascalbaljetmedia/laravel-blade-on-demand): Laravel package to compile Blade templates in memory.
+* [`Laravel FFMpeg`](https://github.com/pascalbaljetmedia/laravel-ffmpeg): This package provides an integration with FFmpeg for Laravel. The storage of the files is handled by Laravel's Filesystem.
+* [`Laravel Paddle`](https://github.com/pascalbaljetmedia/laravel-paddle): Paddle.com API integration for Laravel with support for webhooks/events.
+* [`Laravel Verify New Email`](https://github.com/pascalbaljetmedia/laravel-verify-new-email): This package adds support for verifying new email addresses: when a user updates its email address, it won't replace the old one until the new one is verified.
 
 ## Credits
 
