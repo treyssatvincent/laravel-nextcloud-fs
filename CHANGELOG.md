@@ -4,6 +4,9 @@ All Notable changes to `laravel-webdav` will be documented in this file.
 
 Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
 
+## 1.9.0
+- Support for Laravel 8.0
+
 ## 1.8.0
 - Drops support for Laravel 5.x
 - Support for Laravel 6.x and 7.x
