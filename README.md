@@ -1,7 +1,7 @@
 # laravel-webdav
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
-[![Build Status](https://img.shields.io/travis/protonemedia/laravel-webdav/master.svg?style=flat-square)](https://travis-ci.org/protonemedia/laravel-webdav)
+![run-tests](https://github.com/protonemedia/laravel-webdav/workflows/run-tests/badge.svg)
 [![Software License][ico-license]](LICENSE.md)
 [![Total Downloads][ico-downloads]][link-downloads]
 
