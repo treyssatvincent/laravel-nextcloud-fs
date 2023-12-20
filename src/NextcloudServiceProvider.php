@@ -17,7 +17,7 @@ class NextcloudServiceProvider extends ServiceProvider
     {
         Storage::extend('nextcloud', static function ($app, $config) {
             if (empty($config['userName'])) {
-                throw new \Exception('No userName in config.'); // TODO: custom Exception
+                throw new MissingNextcloudUsernameException();
             }
 
             $client = new WebDAVClient($config);
