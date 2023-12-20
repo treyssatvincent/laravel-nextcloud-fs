@@ -5,6 +5,7 @@ namespace Nino\FilesystemProviders\Tests;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\Config;
 use League\Flysystem\WebDAV\WebDAVAdapter;
+use Nino\FilesystemProviders\MissingNextcloudUsernameException;
 use Nino\FilesystemProviders\NextcloudServiceProvider;
 use Orchestra\Testbench\TestCase;
 
@@ -68,5 +69,13 @@ class ServiceProviderTest extends TestCase
             ),
             $filesystem->getAdapter()->publicUrl($fileName, new Config())
         );
+    }
+
+    /** @test */
+    public function it_throws_exception_on_empty_userName(): void
+    {
+        $this->app['config']->set(self::CONFIG_KEY . '.userName', '');
+        $this->expectException(MissingNextcloudUsernameException::class);
+        Storage::disk('nextcloud');
     }
 }
