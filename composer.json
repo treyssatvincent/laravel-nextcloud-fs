@@ -1,42 +1,40 @@
 {
-    "name": "pbmedia/laravel-webdav",
+    "name": "nino/laravel-nextcloud-fs",
     "type": "library",
-    "description": "Laravel WebDAV Filesystem",
+    "description": "Laravel Nextcloud Filesystem",
     "keywords": [
-        "pbmedia",
-        "laravel-webdav"
+        "laravel",
+        "nextcloud",
+        "filesystem"
     ],
-    "homepage": "https://github.com/protonemedia/laravel-webdav",
+    "support": {
+        "issues": "https://github.com/treyssatvincent/laravel-nextcloud-fs/issues",
+        "source": "https://github.com/treyssatvincent/laravel-nextcloud-fs"
+    },
+
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Pascal Baljet",
-            "email": "info@protone.media",
-            "homepage": "https://protone.media",
-            "role": "Developer"
-        }
-    ],
     "require": {
-        "php": "^7.4 || ^8.0 || ^8.1",
-        "illuminate/filesystem": "^8.67",
-        "league/flysystem-webdav": "^1.0"
+        "php": "^8.1",
+        "illuminate/filesystem": "^10.38",
+        "league/flysystem-webdav": "^3.21"
     },
     "require-dev": {
-        "orchestra/testbench": "^6.23",
-        "phpunit/phpunit": "^9.4"
+        "friendsofphp/php-cs-fixer": "^3.41",
+        "orchestra/testbench": "^8.18",
+        "phpunit/phpunit": "^10.1"
     },
     "autoload": {
         "psr-4": {
-            "Pbmedia\\FilesystemProviders\\": "src"
+            "Nino\\FilesystemProviders\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pbmedia\\FilesystemProviders\\Tests\\": "tests"
+            "Nino\\FilesystemProviders\\Tests\\": "tests"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit tests"
     },
     "config": {
         "sort-packages": true
@@ -46,7 +44,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Pbmedia\\FilesystemProviders\\WebDAVServiceProvider"
+                "Nino\\FilesystemProviders\\NextcloudServiceProvider"
             ]
         }
     }

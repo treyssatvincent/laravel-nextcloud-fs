@@ -1,48 +1,72 @@
 <?php
 
-namespace Pbmedia\FilesystemProviders\tests;
+namespace Nino\FilesystemProviders\Tests;
 
 use Illuminate\Support\Facades\Storage;
+use League\Flysystem\Config;
 use League\Flysystem\WebDAV\WebDAVAdapter;
-use Pbmedia\FilesystemProviders\WebDAVServiceProvider;
+use Nino\FilesystemProviders\NextcloudServiceProvider;
+use Orchestra\Testbench\TestCase;
 
-class ServiceProviderTest extends \Orchestra\Testbench\TestCase
+class ServiceProviderTest extends TestCase
 {
-    protected function getPackageProviders($app)
+    private const CONFIG_KEY = 'filesystems.disks.nextcloud';
+    private const BASE_URI = 'https://nextcloud.example.org';
+    private const USERNAME = 'laravel';
+    private const PASSWORD = 'password-generated-by-nextcloud';
+
+    protected function getPackageProviders($app): array
     {
-        return [WebDAVServiceProvider::class];
+        return [NextcloudServiceProvider::class];
     }
 
-    protected function getEnvironmentSetUp($app)
+    protected function getEnvironmentSetUp($app): void
     {
-        $app['config']->set('filesystems.disks.webdav', [
-            'driver'   => 'webdav',
-            'baseUri'  => 'https://mywebdavstorage.com',
-            'userName' => 'pascalbaljetmedia',
-            'password' => 'supersecretpassword',
+        $app['config']->set(self::CONFIG_KEY, [
+            'driver'     => 'nextcloud',
+            'baseUri'    => self::BASE_URI,
+            'userName'   => self::USERNAME,
+            'password'   => self::PASSWORD,
         ]);
     }
 
     /** @test */
-    public function it_registers_a_webdav_driver()
+    public function it_registers_a_webdav_driver(): void
     {
-        $filesystem = Storage::disk('webdav');
-        $driver     = $filesystem->getDriver();
-        $adapter    = $driver->getAdapter();
+        $filesystem = Storage::disk('nextcloud');
 
-        $this->assertInstanceOf(WebDAVAdapter::class, $adapter);
+        $this->assertInstanceOf(WebDAVAdapter::class, $filesystem->getAdapter());
     }
 
     /** @test */
-    public function it_can_have_an_optional_path_prefix()
+    public function it_implements_illuminate_filesystem(): void
     {
-        $this->app['config']->set('filesystems.disks.webdav.pathPrefix', 'prefix');
+        $filesystem = Storage::disk('nextcloud');
+        $className = \Illuminate\Contracts\Filesystem\Filesystem::class;
 
-        $filesystem = Storage::disk('webdav');
-        $driver     = $filesystem->getDriver();
-        $adapter    = $driver->getAdapter();
+        $this->assertTrue(
+            isset(class_implements($filesystem)[$className])
+        );
+    }
 
-        $this->assertInstanceOf(WebDAVAdapter::class, $adapter);
-        $this->assertEquals('prefix/', $adapter->getPathPrefix());
+    /** @test */
+    public function it_can_have_an_optional_directory(): void
+    {
+        $path = ltrim(fake()->filePath(), '/');
+        $fileName = fake()->word() . '.' . fake()->fileExtension();
+
+        $this->app['config']->set(self::CONFIG_KEY . '.directory', $path);
+        $filesystem = Storage::disk('nextcloud');
+
+        $this->assertSame(
+            sprintf(
+                '%s/remote.php/dav/files/%s/%s/%s',
+                self::BASE_URI,
+                self::USERNAME,
+                $path,
+                $fileName
+            ),
+            $filesystem->getAdapter()->publicUrl($fileName, new Config())
+        );
     }
 }
