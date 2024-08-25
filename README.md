@@ -5,9 +5,9 @@ This package provides a Nextcloud driver for Laravel's Filesystem.
 It's a wrapper around Flysystem's [WebDAV Adapter](https://flysystem.thephpleague.com/docs/adapter/webdav/).
 
 ## Compatibility
-Laravel : 10, 9
+Laravel : 11, 10
 
-PHP : 8.3, 8.2, 8.1
+PHP : 8.3, 8.2
 
 ## Install
 
