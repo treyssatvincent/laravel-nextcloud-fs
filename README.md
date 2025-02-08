@@ -7,7 +7,7 @@ It's a wrapper around Flysystem's [WebDAV Adapter](https://flysystem.thephpleagu
 ## Compatibility
 Laravel : 11, 10
 
-PHP : 8.3, 8.2
+PHP : 8.4, 8.3, 8.2
 
 ## Install
 
