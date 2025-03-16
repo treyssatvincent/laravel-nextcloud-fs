@@ -9,7 +9,7 @@ jobs:
             fail-fast: true
             matrix:
                 php: [ 8.3 ]
-                laravel: [ 11.* ]
+                laravel: [ 12.* ]
                 dependency-version: [ prefer-stable ]
         steps:
             -   name: Checkout code
@@ -44,7 +44,7 @@ jobs:
             fail-fast: true
             matrix:
                 php: [8.4, 8.3, 8.2]
-                laravel: [10.*, 11.*]
+                laravel: [11.*, 12.*]
                 dependency-version: [prefer-lowest, prefer-stable]
 
         name: P${{ matrix.php }} - L${{ matrix.laravel }} - ${{ matrix.dependency-version }}
