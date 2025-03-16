@@ -23,7 +23,7 @@
         "friendsofphp/php-cs-fixer": "^3.62",
         "orchestra/testbench": "^9.3 || ^10.1",
         "phpstan/phpstan": "^1.11",
-        "phpunit/phpunit": "^10.1 || ^9.6"
+        "phpunit/phpunit": "^11.5 || ^10.1 || ^9.6"
     },
     "autoload": {
         "psr-4": {

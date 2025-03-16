@@ -30,7 +30,7 @@ jobs:
 
             -   name: Install dependencies
                 run: |
-                    composer install --prefer-dist --no-interaction --no-suggest
+                    composer install --prefer-dist --no-interaction
 
             -   name: Execute php-cs-fixer
                 run: vendor/bin/php-cs-fixer fix --dry-run --diff
@@ -69,7 +69,7 @@ jobs:
             - name: Install dependencies
               run: |
                   composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
-                  composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction --no-suggest
+                  composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
             - name: Execute tests
               run: vendor/bin/phpunit tests/ServiceProviderTest.php
