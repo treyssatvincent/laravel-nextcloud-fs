@@ -15,15 +15,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "illuminate/filesystem": "^10.38 || ^11.21.0",
+        "illuminate/filesystem": "^10.38 || ^11.21 || ^12.0",
         "league/flysystem-webdav": "^3.28",
         "sabre/uri": ">=2.2.2"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.62",
-        "orchestra/testbench": "^8.18 || ^9.3",
+        "orchestra/testbench": "^9.3 || ^10.1",
         "phpstan/phpstan": "^1.11",
-        "phpunit/phpunit": "^10.1 || ^9.6"
+        "phpunit/phpunit": "^11.5 || ^10.1 || ^9.6"
     },
     "autoload": {
         "psr-4": {
