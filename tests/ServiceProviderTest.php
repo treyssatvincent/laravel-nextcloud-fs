@@ -31,16 +31,14 @@ class ServiceProviderTest extends TestCase
         ]);
     }
 
-    /** @test */
-    public function it_registers_a_webdav_driver(): void
+    public function test_it_registers_a_webdav_driver(): void
     {
         $filesystem = Storage::disk('nextcloud');
 
         $this->assertInstanceOf(WebDAVAdapter::class, $filesystem->getAdapter());
     }
 
-    /** @test */
-    public function it_implements_illuminate_filesystem(): void
+    public function test_it_implements_illuminate_filesystem(): void
     {
         $filesystem = Storage::disk('nextcloud');
         $className = \Illuminate\Contracts\Filesystem\Filesystem::class;
@@ -50,8 +48,7 @@ class ServiceProviderTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_can_have_an_optional_directory(): void
+    public function test_it_can_have_an_optional_directory(): void
     {
         $path = ltrim(fake()->filePath(), '/');
         $fileName = fake()->word() . '.' . fake()->fileExtension();
@@ -71,8 +68,7 @@ class ServiceProviderTest extends TestCase
         );
     }
 
-    /** @test */
-    public function it_throws_exception_on_empty_userName(): void
+    public function test_it_throws_exception_on_empty_userName(): void
     {
         $this->app['config']->set(self::CONFIG_KEY . '.userName', '');
         $this->expectException(MissingNextcloudUsernameException::class);
