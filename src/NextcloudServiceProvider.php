@@ -15,7 +15,7 @@ class NextcloudServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Storage::extend('nextcloud', static function ($app, $config) {
+        Storage::extend('nextcloud', function ($app, $config) {
             if (empty($config['userName'])) {
                 throw new MissingNextcloudUsernameException();
             }
